@@ -11,4 +11,15 @@ class StaticPagesController < ApplicationController
   def contact
   end
   
+  def bicyles
+  end
+  
+  def parts
+  end
+  
+  def gear
+  end
+  
+  def repairs
+  end
 end
