@@ -1,9 +1,8 @@
 
 
 <div class="center jumbotron">
-  <%= link_to image_tag("tadhg_pic.png", alt: "Rails logo"),
-            'http://rubyonrails.org/' %>
-  <h1>Welcome to the Sample App</h1>
+  
+  <h1>Welcome to the Bicycle Shop</h1>
 
   <h2>
     This is the home page for the
@@ -17,6 +16,22 @@
 
 </div>
 
-<%= link_to image_tag("rails.png", alt: "Rails logo"),
-            'http://rubyonrails.org/' %>
+
+            
+            <div class="row">
+  <div class="col-sm-6">.<%= link_to image_tag("fast.png", size: "500x400", alt: "new bicycles"),
+            'http://rubyonrails.org/' %></div>
+  
+  <div class="col-sm-6"><%= link_to image_tag("Bike_Parts.jpg", size: "500x400", alt: "bicycle parts"),
+            'http://rubyonrails.org/' %></div>
+            </div>
+            
+            <div class="row">
+            
+  <div class="col-sm-6"><%= image_tag("gear.jpg", size: "500x400", alt: "bicycle gear") %></div>
+            
+            <div class="col-sm-6"><%= link_to image_tag("repair.jpg", size: "500x400", alt: "bicycle repairs"),
+            'http://rubyonrails.org/' %></div>
+            </div>
+</div>
 
