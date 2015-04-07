@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
 
-before_action :admin_user,     only: :destroy
+#before_action :admin_user,     only: :destroy
+
+#let :admin_user, [:index, :edit, :update, :destroy]
+ # let :correct_user, [:edit, :update]
+ # let :logged_in_user, [:index, :edit, :update, :destroy]
 
   def show
     @item = Item.find(params[:id])
