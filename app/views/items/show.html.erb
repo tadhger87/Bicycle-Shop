@@ -24,7 +24,10 @@
   <%= @item.image_url %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %>
+| <%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Delete'%> |
+
+<a href="/cart/<%= @item.id %>">Add to Cart</a> |
 
 
 

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  get '/cart' => 'cart#index'
+  get '/cart/:id' => 'cart#add'
+ # delete 'delete' => 'item#destroy'
 
     resources :users
     resources :items
