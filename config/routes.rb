@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
     resources :users
     resources :items
-
+resources :account_activations, only: [:edit]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

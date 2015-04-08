@@ -2,7 +2,9 @@ User.create!(name:  "Tadhg Ó Cuirrín",
              email: "tadhger87@gmail.com",
              password:              "87morrison",
              password_confirmation: "87morrison",
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
              
 
 99.times do |n|
@@ -12,5 +14,7 @@ User.create!(name:  "Tadhg Ó Cuirrín",
   User.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               activated: true,
+              activated_at: Time.zone.now)
 end
