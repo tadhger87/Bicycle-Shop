@@ -6,7 +6,16 @@ User.create!(name:  "Tadhg Ó Cuirrín",
              activated: true,
              activated_at: Time.zone.now)
              
-           
+
+
+             User.create!(name: "Piotr Szul",
+                          email: "psmail82@gmail.com",
+                          password: "pierdykam",
+                          password_confirmation: "pierdykam",
+                          admin: true,
+                          activated: true,
+                          activated_at: Time.zone.now)
+
 
              
 
@@ -21,15 +30,13 @@ User.create!(name:  "Tadhg Ó Cuirrín",
                activated: true,
               activated_at: Time.zone.now)
               
-            end
-              
               users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.microposts.create!(content: content) }
 end
 
-
+end
 Item.create!(name: "Liv Envie",
             description: "With its lightweight and durable ALUXX aluminium frame and upright flat-bar positioning, Alight is comfortable enough for a daily commute, but also agile and sporty for longer rides. Women’s-specific geometry and sizing gives Alight a stable, confident ride quality and it’s easy to personalise with racks and fenders to fit your riding lifestyle.",
             price: 999.00,
@@ -64,7 +71,5 @@ Item.create!(name: "FastRoad SLR",
             description: "Thrive blends the speed and agility of a road bike with a more comfortable, flat-bar upright riding position. The all-new women’s-specific frame features Liv’s 3F design and lightweight ALUXX aluminium for a quick, agile feel. The D-Fuse seatpost reduces road vibrations and all-new disc-brake technology offers powerful braking, even in wet weather, so you can ride with supreme confidence.",
             price: 849.00,
             image_url: "Avail.jpg")
-
-
 
 
