@@ -6,7 +6,7 @@ User.create!(name:  "Tadhg Ó Cuirrín",
              activated: true,
              activated_at: Time.zone.now)
              
-<<<<<<< HEAD
+
              User.create!(name: "Piotr Szul",
                           email: "psmail82@gmail.com",
                           password: "pierdykam",
@@ -14,8 +14,7 @@ User.create!(name:  "Tadhg Ó Cuirrín",
                           admin: true,
                           activated: true,
                           activated_at: Time.zone.now)
-=======
->>>>>>> 14409bd524ae61a0bd0fd4fcfad09d52a508d3f5
+
              
 
 99.times do |n|
@@ -34,11 +33,8 @@ User.create!(name:  "Tadhg Ó Cuirrín",
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.microposts.create!(content: content) }
 end
-<<<<<<< HEAD
+
 end
-=======
-
-
 Item.create!(name: "Liv Envie",
             description: "With its lightweight and durable ALUXX aluminium frame and upright flat-bar positioning, Alight is comfortable enough for a daily commute, but also agile and sporty for longer rides. Women’s-specific geometry and sizing gives Alight a stable, confident ride quality and it’s easy to personalise with racks and fenders to fit your riding lifestyle.",
             price: 999.00,
@@ -75,6 +71,3 @@ Item.create!(name: "FastRoad SLR",
             image_url: "Avail.jpg")
 
 
-
-
->>>>>>> 14409bd524ae61a0bd0fd4fcfad09d52a508d3f5
