@@ -6,6 +6,8 @@ User.create!(name:  "Tadhg Ó Cuirrín",
              activated: true,
              activated_at: Time.zone.now)
              
+           
+
              
 
 99.times do |n|
