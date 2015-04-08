@@ -18,9 +18,18 @@ User.create!(name:  "Tadhg Ó Cuirrín",
                activated: true,
               activated_at: Time.zone.now)
               
+            end
+              
               users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.microposts.create!(content: content) }
 end
+
+5.times do |n|
+Item.create!(name: "Liv Envie",
+            description: "This the Liv Envie ladies bicycle - it's class!",
+            price: 999.00,
+            image_url: "LivEnvie.jpg")
 end
+
