@@ -18,4 +18,12 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+  
+  test "associated items should be destroyed" do
+    @user.save
+    @user.items.create!(name: "Example Item", description: "this is some description", price: 9.99, image_url: "example.jpg" )
+    assert_difference 'Item.count', -1 do
+      @user.destroy
+    end
+  end
 end
