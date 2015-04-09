@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
-before_action :admin_user,     only: :destroy
+before_action :logged_in_user, only: [:edit, :destroy]
+#before_action :admin_user,     only: :destroy
 
 #let :admin_user, [:index, :edit, :update, :destroy]
  # let :correct_user, [:edit, :update]
@@ -43,5 +44,10 @@ before_action :admin_user,     only: :destroy
 
     def item_params
       params.require(:item).permit(:name, :description, :price, :image_url)
+    end
+    
+    def correct_user
+      @item = current_user.items.find_by(id: params[:id])
+      redirect_to root_url if @item.nil?
     end
 end

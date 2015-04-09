@@ -3,8 +3,10 @@ require 'test_helper'
 class ItemTest < ActiveSupport::TestCase
 
   def setup
-    @item = Item.new(name: "Example Item", description: "this is some description", price: 9.99, image_url: "example.jpg")
+    @user = users(:tadhg)
+    @item = Item.new(name: "Example Item", description: "this is some description", price: 9.99, image_url: "example.jpg" )#, user_id: @user.id)
   end
+#  @micropost = @user.microposts.build(content: "Lorem ipsum")
 
   test "should be valid" do
     assert @item.valid?
