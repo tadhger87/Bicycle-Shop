@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-#before_action :admin_user,     only: :destroy
+before_action :admin_user,     only: :destroy
 
 #let :admin_user, [:index, :edit, :update, :destroy]
  # let :correct_user, [:edit, :update]
