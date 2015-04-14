@@ -8,8 +8,7 @@ class CreateItems < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :items, :users
-    add_index :items, :user_id
+    
   end
   
 end
