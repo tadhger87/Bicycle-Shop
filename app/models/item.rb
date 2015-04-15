@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  belongs_to :order
+  belongs_to :cart_item
   #validates :user_id, presence: true
   validates :name, presence: true
   validates :description, presence: true
