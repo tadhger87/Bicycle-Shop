@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408145500) do
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.integer  "items_id"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cart_items", ["cart_id", "items_id"], name: "index_cart_items_on_cart_id_and_items_id"
+  add_index "cart_items", ["cart_id"], name: "index_cart_items_on_cart_id"
+  add_index "cart_items", ["items_id"], name: "index_cart_items_on_items_id"
+
+  create_table "carts", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
+
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -49,4 +70,4 @@ ActiveRecord::Schema.define(version: 20150408145500) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
 
-end
+
