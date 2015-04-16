@@ -77,6 +77,10 @@ has_many :orders
     Micropost.where("user_id = ?", id)
   end
   
+  def orders
+    Order.where("users_id = ?", id)
+  end
+  
   private
 
     # Converts email to all lower-case.

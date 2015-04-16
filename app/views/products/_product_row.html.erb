@@ -1,8 +1,14 @@
 <div class="well">
 
   <div class="row">
+    <div class="image-right">
+            <%= link_to (image_tag product.image_url, :style => "height:100px") %>
+        </div>
     <div class="col-xs-8">
       <h4><%= product.name %></small></h4>
+    </div>
+    <div class="col-xs-8">
+      <h4><%= product.description %></small></h4>
     </div>
     <div class="col-xs-4">
       
@@ -14,6 +20,12 @@
             <%= f.hidden_field :product_id, value: product.id %>
             <%= f.submit "Add to Cart", class: "btn btn-primary" %>
           </div>
+          
+          | <%#= link_to 'Edit', edit_product_path(@product) %> |
+<%#= link_to 'Delete'%> |
+          
+          
+<%#= link_to 'Delete'%> 
         </div>
       <% end %>
     </div>

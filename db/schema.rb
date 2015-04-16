@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416183644) do
+ActiveRecord::Schema.define(version: 20150416230134) do
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -50,17 +50,20 @@ ActiveRecord::Schema.define(version: 20150416183644) do
     t.integer  "order_status_id"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "users_id"
   end
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
+  add_index "orders", ["users_id"], name: "index_orders_on_users_id"
 
-  create_table "product", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.decimal  "price",       precision: 8, scale: 2
+    t.decimal  "price"
     t.string   "image_url"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.boolean  "active"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150416183644) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.integer  "{:index=>true}_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

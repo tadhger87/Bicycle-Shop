@@ -7,12 +7,17 @@ class UsersController < ApplicationController
   
 
   def index
-    @users = User.paginate(page: params[:page])   #@users = User.all
+    @users = User.paginate(page: params[:page])  
+    #@users = User.all
   end
 
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+   # @shopping_cart = @user.shopping_cart
+    
+    #render "carts/cart_row"
+    #@order_items = @user.order_items.paginate(page: params[:page])
   end
 
   def new

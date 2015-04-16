@@ -29,12 +29,12 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  resources :products, only: [:index]
+  resources :products, only: [:index, :edit, :update, :destroy]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 
     resources :users
-   # resources :items
+    resources :items
 resources :account_activations, only: [:edit]
 resources :password_resets,     only: [:new, :create, :edit, :update]
 resources :microposts,          only: [:create, :destroy]
