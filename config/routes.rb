@@ -3,6 +3,16 @@ Rails.application.routes.draw do
   
   
 
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
+  get 'products/index'
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -19,12 +29,12 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  get '/cart' => 'cart#index'
-  get '/cart/:id' => 'cart#add'
- # delete 'delete' => 'item#destroy'
+  resources :products, only: [:index]
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 
     resources :users
-    resources :items
+   # resources :items
 resources :account_activations, only: [:edit]
 resources :password_resets,     only: [:new, :create, :edit, :update]
 resources :microposts,          only: [:create, :destroy]
