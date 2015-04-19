@@ -16,5 +16,12 @@ class OrderItemsControllerTest < ActionController::TestCase
    # get :destroy
     #assert_response :success
   #end
+  
+  test "should create order_item" do
+assert_difference('OrderItem.count') do
+ post :create, product_id: products(:ruby).id
+end
+ assert_redirected_to cart_path(assigns(:order_item).cart)
+end
 
 end

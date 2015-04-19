@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416230134) do
+ActiveRecord::Schema.define(version: 20150419010430) do
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "orders_id"
+  end
+
+  add_index "carts", ["orders_id"], name: "index_carts_on_orders_id"
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -25,15 +33,15 @@ ActiveRecord::Schema.define(version: 20150416230134) do
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
-    t.integer  "order_id"
     t.decimal  "unit_price",  precision: 12, scale: 3
     t.integer  "quantity"
     t.decimal  "total_price", precision: 12, scale: 3
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.integer  "cart_id"
   end
 
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
+  add_index "order_items", ["cart_id"], name: "index_order_items_on_cart_id"
   add_index "order_items", ["product_id"], name: "index_order_items_on_product_id"
 
   create_table "order_statuses", force: :cascade do |t|
@@ -43,17 +51,15 @@ ActiveRecord::Schema.define(version: 20150416230134) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.decimal  "subtotal",        precision: 12, scale: 3
-    t.decimal  "tax",             precision: 12, scale: 3
-    t.decimal  "shipping",        precision: 12, scale: 3
-    t.decimal  "total",           precision: 12, scale: 3
-    t.integer  "order_status_id"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.decimal  "subtotal",   precision: 12, scale: 3
+    t.decimal  "tax",        precision: 12, scale: 3
+    t.decimal  "shipping",   precision: 12, scale: 3
+    t.decimal  "total",      precision: 12, scale: 3
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "users_id"
   end
 
-  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
   add_index "orders", ["users_id"], name: "index_orders_on_users_id"
 
   create_table "products", force: :cascade do |t|
@@ -79,7 +85,6 @@ ActiveRecord::Schema.define(version: 20150416230134) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.integer  "{:index=>true}_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

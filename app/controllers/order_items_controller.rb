@@ -1,26 +1,22 @@
 class OrderItemsController < ApplicationController
-  def create
-    @order = current_order
-    @order_item = @order.order_items.new(order_item_params)
-    @order.save
-    session[:order_id] = @order.id
-  end
+ 
+ def create
+ @cart = current_cart
+ product = Product.find(params[:product_id])
+ @order_item = @cart.order_items.build(product: product)
+respond_to do |format|
+if @order_item.save
+ format.html { redirect_to @order_item.cart,
+notice: 'Line item was successfully created.' }
+format.json { render json: @order_item,
+status: :created, location: @order_item }
+else
+format.html { render action: "new" }
+format.json { render json: @order_item.errors,
+status: :unprocessable_entity }
+end
 
-  def update
-    @order = current_order
-    @order_item = @order.order_items.find(params[:id])
-    @order_item.update_attributes(order_item_params)
-    @order_items = @order.order_items
-  end
+end
+end
 
-  def destroy
-    @order = current_order
-    @order_item = @order.order_items.find(params[:id])
-    @order_item.destroy
-    @order_items = @order.order_items
-  end
-private
-  def order_item_params
-    params.require(:order_item).permit(:quantity, :product_id)
-  end
 end

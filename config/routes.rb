@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   
   
 
+  get 'store/index'
+
+  resources :carts
+
   get 'order_items/create'
 
   get 'order_items/update'
@@ -29,7 +33,7 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  resources :products, only: [:index, :edit, :update, :destroy]
+  resources :products # only: [:index, :edit, :update, :destroy]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 
