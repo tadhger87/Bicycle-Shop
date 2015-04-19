@@ -1,5 +1,5 @@
-<% if @order.errors.any? || @order_item.errors.any? %>
-alert("not valid.")
-<% else %>
-  $(".cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
-<% end %>
+$("#notice").hide();
+if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
+$('#cart').html("<%=j render @cart %>");
+$('#current_item').css({'background-color':'#88ff88'}).
+animate({'background-color':'#114411'}, 1000);

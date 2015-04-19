@@ -1,10 +1,7 @@
-
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<h2>Your Cart</h2>
-<ul>
-<% @cart.order_items.each do |item| %>
-<li><%= item.product.name %></li>
-<% end %>
-</ul>
+
+<div class="cart_title">Your Cart</div>
+<table>
+  <%= render @cart %>

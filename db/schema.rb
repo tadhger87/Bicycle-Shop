@@ -11,15 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419010430) do
+ActiveRecord::Schema.define(version: 20150419155835) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "orders_id"
   end
-
-  add_index "carts", ["orders_id"], name: "index_carts_on_orders_id"
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -33,12 +30,11 @@ ActiveRecord::Schema.define(version: 20150419010430) do
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
-    t.decimal  "unit_price",  precision: 12, scale: 3
-    t.integer  "quantity"
-    t.decimal  "total_price", precision: 12, scale: 3
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "cart_id"
+    t.integer  "quantity",   default: 1
+    t.integer  "order_id"
   end
 
   add_index "order_items", ["cart_id"], name: "index_order_items_on_cart_id"
@@ -51,13 +47,13 @@ ActiveRecord::Schema.define(version: 20150419010430) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.decimal  "subtotal",   precision: 12, scale: 3
-    t.decimal  "tax",        precision: 12, scale: 3
-    t.decimal  "shipping",   precision: 12, scale: 3
-    t.decimal  "total",      precision: 12, scale: 3
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "users_id"
+    t.string   "name"
+    t.text     "address"
+    t.string   "email"
+    t.string   "pay_type"
   end
 
   add_index "orders", ["users_id"], name: "index_orders_on_users_id"

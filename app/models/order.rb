@@ -1,19 +1,13 @@
 class Order < ActiveRecord::Base
-  belongs_to :user
+  has_many :order_items, dependent: :destroy
   
-  has_many :carts
-  before_create :set_order_status
-  before_save :update_subtotal
-
-  def subtotal
-    order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+#PAYMENT_TYPES = [ "Check", "Credit card", "Purchase order" ]
+  
+  def add_order_items_from_cart(cart)
+    cart.order_items.each do |item|
+      item.cart_id = nil
+      order_items << item
+    end
   end
-private
-  def set_order_status
-    self.order_status_id = 1
-  end
-
-  def update_subtotal
-    self[:subtotal] = subtotal
-  end
+  validates :name, :address, :email, presence: true
 end
