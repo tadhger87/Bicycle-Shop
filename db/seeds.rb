@@ -12,7 +12,7 @@ User.create!(name:  "Tadhg Ó Cuirrín",
                           email: "psmail82@gmail.com",
                           password: "pierdykam",
                           password_confirmation: "pierdykam",
-                          admin: true,
+                          admin: false,
                           activated: true,
                           activated_at: Time.zone.now)
 
