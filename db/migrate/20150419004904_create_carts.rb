@@ -3,7 +3,7 @@ class CreateCarts < ActiveRecord::Migration
     create_table :carts do |t|
 
       t.timestamps null: false
-      t.reference :orders, index: true
+      t.references :orders, index: true
     end
     add_foreign_key :carts, :orders
   end
