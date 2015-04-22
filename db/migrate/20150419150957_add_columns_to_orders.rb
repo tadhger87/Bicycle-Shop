@@ -16,6 +16,6 @@ class AddColumnsToOrders < ActiveRecord::Migration
      remove_column :order_items, :total_price
      
      add_reference :order_items, :order_id, index: true
-    add_foreign_key :order_items, :order_id
+     add_foreign_key :order_items, :orders
   end
 end
