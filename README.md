@@ -1,6 +1,3 @@
-# Ruby on Rails Tutorial: sample application
+# Ruby on Rails - Bicycle shop e-commerce platform
 
-This is the sample application for the
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
+A simple e-commerce web application built in Ruby on Rails in the Cloud9 IDE for a college project.  The project was collaborative but the majority of the work was my own.
